@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+    <script type="text/javascript" src="/angular.min.js"></script>
+</head>
+<body>
+  <div  ng-app="productlist" ng-controller="shopingcart">
+    <h1>产品列表</h1>
+    <ul class="box">
+      <li><a ng-click="showpop('cccc1')" class="pointer">cccc1</a></li>
+      <li ><a ng-click="showpop('cccc2')" class="pointer">cccc2</a></li>
+    </ul>
+    <!-- 弹层-->
+    <h1>产品参数</h1>
+    <div class="pop box">
+      <h2>
+        {{data.title}}
+        {{data.price}}
+      </h2>
+      尺寸:<select ng-model="set.size" ng-options="x for (y, x) in data.size.data"></select>
+      颜色:<select ng-model="set.color" ng-options="x for (y, x) in data.color.data"></select>
+      价钱:{{set.price}}
+      <a ng-click="addcart()" class="pointer">addcart</a>
+    </div>
+    <!-- 弹层 end-->
+    <!--购物车-->
+    <h1>购物车列表</h1>
+    <div class="cart box">
+      <ul>
+        <li  ng-repeat="x in cartlist">
+          {{x.title}}
+		  &nbsp;&nbsp;&nbsp;单价:{{x.price|currency:'￥'}}
+          <input type="text" ng-model="cartlist[$index].count" ng-mouseleave="cartchange($index)"/>
+		  小计:{{x.price*x.count|currency:'￥'}}
+          <a ng-click="cartdelete($index)" class="pointer">del</a>
+        </li>
+      </ul>
+	  总数:{{cartinfo.count}}&nbsp;&nbsp;总金额:{{cartinfo.price|currency:'￥'}}
+
+      <p>用户名:<input type="text" ng-model="user.name" /></p>
+      <p>邮箱:<input type="text" ng-model="user.email"/></p>
+      <p>地址:<input type="text" ng-model="user.adress"/></p>
+      <a ng-click="checkout()" class="pointer">提交</a>
+    </div>
+    <!--购物车 end-->
+  </div>
+  <style>
+  .box{border: 1px solid #000;}
+  h1{border-left: 3px solid green;padding: 0;margin: 1em 0 0; background-color: rgba(0,128,0,0.2);}
+  ul{margin: 0;}
+  li{border-left: 3px solid rgb(225,165,0);    list-style: none;   padding: 0.8em 0.5em;    margin: 0.5em 0;    border-bottom: 1px solid rgb(225,165,0);}
+  .pointer{    cursor: pointer;}
+  .pointer:hover {    color: red;}
+  </style>
+  <script type="text/javascript" src="/todo.js"></script>
+</body>
+</html>

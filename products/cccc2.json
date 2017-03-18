@@ -1,0 +1,27 @@
+    {
+        "size":
+            {
+                "ctrl": "option",
+                "data":
+                    {
+                        "0": "1 in",
+                        "1": "2 in"
+                    }
+
+            }
+        ,
+        "color":
+            {
+                "ctrl": "option",
+                "data":
+                    {
+                        "0": "blue",
+                        "1": "yellow1"
+                    }
+
+            }
+        ,
+        "price": "200",
+        "productID": "CCC002",
+        "title": "cccc2"
+    }
